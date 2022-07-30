@@ -2,7 +2,7 @@ terraform {
   required_providers {
     proxmox = {
       source  = "telmate/proxmox"
-      version = "2.9.6"
+      version = "2.9.3"
     }
   }
 }
@@ -15,6 +15,7 @@ provider "proxmox" {
   pm_api_url = "https://10.1.2.221:8006/api2/json"
   pm_api_token_id = local.credentials["id"]
   pm_api_token_secret = local.credentials["secret"]
-  pm_timeout = 2000
+  pm_timeout = 20000
+  pm_tls_insecure = true
 }
 
