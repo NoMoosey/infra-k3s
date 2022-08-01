@@ -1,11 +1,11 @@
 resource "proxmox_vm_qemu" "moose-k3s-master" {
   count = 1
   name        = "moose-k3s-master-0${count.index + 1}"
-  target_node = "baymax"
-  clone = "ubuntu-cloud-shared"
+  target_node = "bender"
+  clone = "ubuntu-cloud-bender"
 
-  sockets = 2
-  cores = 2
+  sockets = 1
+  cores = 3
   memory = 4096
 
   sshkeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEn5k5xqBqVg9HqNwOq/TjtvIUc+/vugkDh6PVeI7FYg joe@Joes-MacBook-Pro.local"
@@ -15,20 +15,20 @@ resource "proxmox_vm_qemu" "moose-k3s-master" {
 
   disk {
     type         = "virtio"
-    storage      = "baymax-fast"
-    size         = "50G"
+    storage      = "fast-thin"
+    size         = "100G"
   }
 }
 
 resource "proxmox_vm_qemu" "moose-k3s-worker" {
   count = 3
   name        = "moose-k3s-worker-0${count.index + 1}"
-  target_node = "baymax"
-  clone = "ubuntu-cloud-shared"
+  target_node = "bender"
+  clone = "ubuntu-cloud-bender"
 
-  sockets = 6
+  sockets = 5
   cores = 1
-  memory = 6144
+  memory = 10240
 
   sshkeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEn5k5xqBqVg9HqNwOq/TjtvIUc+/vugkDh6PVeI7FYg joe@Joes-MacBook-Pro.local"
 
@@ -37,8 +37,8 @@ resource "proxmox_vm_qemu" "moose-k3s-worker" {
 
   disk {
     type         = "virtio"
-    storage      = "baymax-fast"
-    size         = "300G"
+    storage      = "fast-thin"
+    size         = "200G"
   }
 #   disk {
 #     type         = "virtio"

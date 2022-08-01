@@ -19,6 +19,6 @@
     - role: k3s/node
 
 - hosts: master
-  become: yes
+  become: no
   roles:
     - role: configure
