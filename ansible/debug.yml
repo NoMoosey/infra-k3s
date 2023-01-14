@@ -1,7 +1,0 @@
----
-
-- hosts: master[0]
-  gather_facts: yes
-  become: no
-  roles:
-    - role: configure

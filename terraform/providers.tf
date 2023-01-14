@@ -1,8 +1,17 @@
+# terraform {
+#   required_providers {
+#     proxmox = {
+#       source  = "telmate/proxmox"
+#       version = "2.8.0"
+#     }
+#   }
+# }
+
 terraform {
   required_providers {
     proxmox = {
       source  = "telmate/proxmox"
-      version = "2.8.0"
+      version = "2.9.11"
     }
   }
 }
