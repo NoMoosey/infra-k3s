@@ -17,6 +17,12 @@ resource "proxmox_vm_qemu" "moose-k3s-master-01" {
     storage      = "baymax-fast"
     size         = "100G"
   }
+
+  disk {
+    type         = "virtio"
+    storage      = "baymax-fast"
+    size         = "200G"
+  }
 }
 
 resource "proxmox_vm_qemu" "moose-k3s-master-02" {
@@ -38,6 +44,12 @@ resource "proxmox_vm_qemu" "moose-k3s-master-02" {
     storage      = "fast-thin"
     size         = "100G"
   }
+
+  disk {
+    type         = "virtio"
+    storage      = "fast-thin"
+    size         = "200G"
+  }
 }
 
 resource "proxmox_vm_qemu" "moose-k3s-master-03" {
@@ -58,6 +70,12 @@ resource "proxmox_vm_qemu" "moose-k3s-master-03" {
     type         = "virtio"
     storage      = "local-lvm"
     size         = "100G"
+  }
+
+  disk {
+    type         = "virtio"
+    storage      = "local-lvm"
+    size         = "200G"
   }
 }
 
